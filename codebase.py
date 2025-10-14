@@ -25,6 +25,7 @@ POTENTIALLY_BINARY_EXTENSIONS = {
 def load_gitignore(root_dir: Path) -> pathspec.PathSpec:
     """Loads and parses the .gitignore file, adding default ignore patterns."""
     gitignore_path = root_dir / '.gitignore'
+    
     patterns = []
     if gitignore_path.is_file():
         with open(gitignore_path, 'r', encoding='utf-8') as f:
@@ -130,12 +131,15 @@ def main():
     
     write_codebase_to_file(project_name, files_to_include, output_filename)
     
+    # Get the absolute path of the output file to create a clickable link
+    absolute_output_path = Path(output_filename).resolve()
+    
     duration = time.monotonic() - start_time
     print("\n" + "="*50)
     print("CODEBASE CONSOLIDATION COMPLETE")
     print("="*50)
     print(f"Success! Combined {len(files_to_include)} files into a single file.")
-    print(f"Output file: {output_filename}")
+    print(f"Output file: {absolute_output_path.as_uri()}")
     print(f"Time taken: {duration:.2f} seconds")
     print("="*50)
 
