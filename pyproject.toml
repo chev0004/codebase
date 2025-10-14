@@ -1,0 +1,10 @@
+[project]
+name = "codebase"
+version = "1.0.0"
+dependencies = [
+    "pathspec>=0.12.1",
+    "tqdm>=4.66.1",
+]
+
+[project.scripts]
+codebase = "codebase:main"
