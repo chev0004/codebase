@@ -44,10 +44,10 @@ Run the script from your terminal, pointing it to the project directory you want
 
 **Basic Usage (combines the current directory):**
 ```bash
-codebase.py .
+codebase .
 ```
 
 **Specify an output file name:**
 ```bash
-codebase.py . --output my_project.md
+codebase . --output my_project.md
 ```
